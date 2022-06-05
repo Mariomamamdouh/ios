@@ -92,13 +92,7 @@ class _SplashScreenState extends State<SplashScreen> {
     });
   }
 
-  Future _init() async {
-    final _packageInfo = await PackageInfo.fromPlatform();
 
-    context.read<HomeProvider>().setPackageInfo(_packageInfo);
-
-    return _packageInfo.version;
-  }
 
   @override
   void initState() {
@@ -130,11 +124,10 @@ class _SplashScreenState extends State<SplashScreen> {
       });
       appColors.forEach((element) {
         setState(() {
-          if (element.title == 'primary') {
             primaryColor = HexColor(element.description!);
-          } else {
+
             secondaryColor = HexColor(element.description!);
-          }
+
         });
       });
       if (loadHomeSuccess) {
@@ -184,19 +177,6 @@ class _SplashScreenState extends State<SplashScreen> {
                   ),
                 ],
               ),
-            ),
-            FutureBuilder(
-              future: _init(),
-              builder: (context, snapshot) {
-                if (snapshot.hasData) {
-                  _versionName = snapshot.data as String?;
-                  return Text(
-                    'Version ' + _versionName!,
-                  );
-                } else {
-                  return Container();
-                }
-              },
             ),
           ],
         ));

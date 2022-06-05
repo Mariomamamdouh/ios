@@ -358,11 +358,8 @@ class _ModalSheetCartState extends State<ModalSheetCart> {
                                           CrossAxisAlignment.end,
                                       children: [
                                         Text(
-                                          stringToCurrency(
-                                              double.parse(widget
-                                                      .product!.productPrice)
-                                                  .toDouble(),
-                                              context),
+                                          widget
+                                                      .product!.productPrice.toString(),
                                           style: TextStyle(
                                               color: secondaryColor,
                                               fontWeight: FontWeight.w500),

@@ -114,10 +114,10 @@ class CardItem extends StatelessWidget {
                                     style: TextStyle(color: Colors.black),
                                     children: <TextSpan>[
                                       TextSpan(
-                                          text: stringToCurrency(
-                                              double.parse(
-                                                  product!.productRegPrice),
-                                              context),
+                                          text:
+
+                                                  product!.productRegPrice.toString(),
+
                                           style: TextStyle(
                                               decoration:
                                                   TextDecoration.lineThrough,
@@ -135,10 +135,9 @@ class CardItem extends StatelessWidget {
                                     style: TextStyle(color: Colors.black),
                                     children: <TextSpan>[
                                       TextSpan(
-                                          text: stringToCurrency(
-                                              double.parse(
-                                                  product!.productPrice),
-                                              context),
+                                          text:
+
+                                                  product!.productPrice.toString(),
                                           style: TextStyle(
                                               fontWeight: FontWeight.w600,
                                               fontSize: responsiveFont(11),

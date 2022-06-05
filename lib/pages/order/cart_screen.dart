@@ -406,10 +406,8 @@ class _CartScreenState extends State<CartScreen> {
                               width: 5,
                             ),
                             Text(
-                              stringToCurrency(
-                                  double.parse(
-                                      productCart[index].productRegPrice),
-                                  context),
+
+                                      productCart[index].productRegPrice.toString(),
                               style: TextStyle(
                                   color: HexColor("C4C4C4"),
                                   decoration: TextDecoration.lineThrough,
@@ -424,9 +422,7 @@ class _CartScreenState extends State<CartScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            stringToCurrency(
-                                double.parse(productCart[index].productPrice),
-                                context),
+                           productCart[index].productPrice.toString(),
                             style: TextStyle(
                                 fontSize: responsiveFont(10),
                                 color: secondaryColor,
@@ -665,8 +661,8 @@ class _CartScreenState extends State<CartScreen> {
                                     style:
                                         TextStyle(fontWeight: FontWeight.bold)),
                                 TextSpan(
-                                    text: stringToCurrency(
-                                        totalPriceCart.toDouble(), context),
+                                    text:
+                                        totalPriceCart.toString(),
                                     style: TextStyle(
                                         fontWeight: FontWeight.bold,
                                         color: primaryColor)),

@@ -111,7 +111,7 @@ class _LobbyScreenState extends State<LobbyScreen>
       });
     }
 
-    if (Session.data.getBool('isLogin')!) {
+    if (Session.data.getBool('isLogin').toString().isEmpty) {
       loadRecentProduct();
       loadWallet();
       loadCoupon();

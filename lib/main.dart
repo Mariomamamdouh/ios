@@ -46,7 +46,7 @@ Future<void> _messageHandler(RemoteMessage message) async {
   print("Handling a background message: ${message.messageId}");
   await Firebase.initializeApp();
   final NotificationAppLaunchDetails? notificationAppLaunchDetails = !kIsWeb &&
-          Platform.isLinux
+      Platform.isLinux
       ? null
       : await flutterLocalNotificationsPlugin.getNotificationAppLaunchDetails();
   String initialRoute = "Initial Route";
@@ -69,7 +69,7 @@ void main() async {
   await appLanguage.fetchLocale();
 
   final NotificationAppLaunchDetails? notificationAppLaunchDetails = !kIsWeb &&
-          Platform.isLinux
+      Platform.isLinux
       ? null
       : await flutterLocalNotificationsPlugin.getNotificationAppLaunchDetails();
   String initialRoute = "Initial Route";
@@ -81,67 +81,67 @@ void main() async {
   FirebaseMessaging.onBackgroundMessage(_messageHandler);
   runApp(Phoenix(
       child: MultiProvider(
-    providers: [
-      ChangeNotifierProvider<BannerProvider>(
-        create: (context) => BannerProvider(),
-      ),
-      ChangeNotifierProvider<CategoryProvider>(
-        create: (context) => CategoryProvider(),
-      ),
-      ChangeNotifierProvider<FlashSaleProvider>(
-        create: (context) => FlashSaleProvider(),
-      ),
-      ChangeNotifierProvider<BlogProvider>(
-        create: (context) => BlogProvider(),
-      ),
-      ChangeNotifierProvider<LoginProvider>(
-        create: (context) => LoginProvider(),
-      ),
-      ChangeNotifierProvider<UserProvider>(
-        create: (context) => UserProvider(),
-      ),
-      ChangeNotifierProvider<ProductProvider>(
-        create: (context) => ProductProvider(),
-      ),
-      ChangeNotifierProvider<GeneralSettingsProvider>(
-        create: (context) => GeneralSettingsProvider(),
-      ),
-      ChangeNotifierProvider<RegisterProvider>(
-        create: (context) => RegisterProvider(),
-      ),
-      ChangeNotifierProvider<WishlistProvider>(
-        create: (context) => WishlistProvider(),
-      ),
-      ChangeNotifierProvider<SearchProvider>(
-        create: (context) => SearchProvider(),
-      ),
-      ChangeNotifierProvider<OrderProvider>(
-        create: (context) => OrderProvider(),
-      ),
-      ChangeNotifierProvider<CouponProvider>(
-        create: (context) => CouponProvider(),
-      ),
-      ChangeNotifierProvider<ReviewProvider>(
-        create: (context) => ReviewProvider(),
-      ),
-      ChangeNotifierProvider<NotificationProvider>(
-        create: (context) => NotificationProvider(),
-      ),
-      ChangeNotifierProvider<AppNotifier>(
-        create: (context) => AppNotifier(),
-      ),
-      ChangeNotifierProvider<HomeProvider>(
-        create: (context) => HomeProvider(),
-      ),
-      ChangeNotifierProvider<WalletProvider>(
-        create: (context) => WalletProvider(),
-      ),
-    ],
-    child: MyApp(
-      appLanguage: appLanguage,
-      notificationAppLaunchDetails: notificationAppLaunchDetails,
-    ),
-  )));
+        providers: [
+          ChangeNotifierProvider<BannerProvider>(
+            create: (context) => BannerProvider(),
+          ),
+          ChangeNotifierProvider<CategoryProvider>(
+            create: (context) => CategoryProvider(),
+          ),
+          ChangeNotifierProvider<FlashSaleProvider>(
+            create: (context) => FlashSaleProvider(),
+          ),
+          ChangeNotifierProvider<BlogProvider>(
+            create: (context) => BlogProvider(),
+          ),
+          ChangeNotifierProvider<LoginProvider>(
+            create: (context) => LoginProvider(),
+          ),
+          ChangeNotifierProvider<UserProvider>(
+            create: (context) => UserProvider(),
+          ),
+          ChangeNotifierProvider<ProductProvider>(
+            create: (context) => ProductProvider(),
+          ),
+          ChangeNotifierProvider<GeneralSettingsProvider>(
+            create: (context) => GeneralSettingsProvider(),
+          ),
+          ChangeNotifierProvider<RegisterProvider>(
+            create: (context) => RegisterProvider(),
+          ),
+          ChangeNotifierProvider<WishlistProvider>(
+            create: (context) => WishlistProvider(),
+          ),
+          ChangeNotifierProvider<SearchProvider>(
+            create: (context) => SearchProvider(),
+          ),
+          ChangeNotifierProvider<OrderProvider>(
+            create: (context) => OrderProvider(),
+          ),
+          ChangeNotifierProvider<CouponProvider>(
+            create: (context) => CouponProvider(),
+          ),
+          ChangeNotifierProvider<ReviewProvider>(
+            create: (context) => ReviewProvider(),
+          ),
+          ChangeNotifierProvider<NotificationProvider>(
+            create: (context) => NotificationProvider(),
+          ),
+          ChangeNotifierProvider<AppNotifier>(
+            create: (context) => AppNotifier(),
+          ),
+          ChangeNotifierProvider<HomeProvider>(
+            create: (context) => HomeProvider(),
+          ),
+          ChangeNotifierProvider<WalletProvider>(
+            create: (context) => WalletProvider(),
+          ),
+        ],
+        child: MyApp(
+          appLanguage: appLanguage,
+          notificationAppLaunchDetails: notificationAppLaunchDetails,
+        ),
+      )));
 }
 
 class MyApp extends StatefulWidget {
@@ -173,20 +173,20 @@ class _MyAppState extends State<MyApp> {
   void _requestPermissions() {
     flutterLocalNotificationsPlugin
         .resolvePlatformSpecificImplementation<
-            IOSFlutterLocalNotificationsPlugin>()
+        IOSFlutterLocalNotificationsPlugin>()
         ?.requestPermissions(
-          alert: true,
-          badge: true,
-          sound: true,
-        );
+      alert: true,
+      badge: true,
+      sound: true,
+    );
     flutterLocalNotificationsPlugin
         .resolvePlatformSpecificImplementation<
-            MacOSFlutterLocalNotificationsPlugin>()
+        MacOSFlutterLocalNotificationsPlugin>()
         ?.requestPermissions(
-          alert: true,
-          badge: true,
-          sound: true,
-        );
+      alert: true,
+      badge: true,
+      sound: true,
+    );
   }
 
   void _configureDidReceiveLocalNotificationSubject() {
@@ -279,7 +279,7 @@ class _MyAppState extends State<MyApp> {
       splitScreenMode: true,
       builder: (context,child) {
         return ChangeNotifierProvider<AppNotifier?>(
-            create: (_) => widget.appLanguage, child: child );
+            create: (_) => widget.appLanguage, child: child);
       },
       child: Consumer<AppNotifier>(
         builder: (context, value, _) => MaterialApp(
@@ -380,19 +380,8 @@ class _MyAppState extends State<MyApp> {
             GlobalCupertinoLocalizations.delegate,
             CountryLocalizations.delegate,
           ],
-          home: Builder(
-            builder: (context) {
-              return FutureBuilder(
-                  future: DeeplinkConfig().initUniLinks(context),
-                  builder: (_, snapshot) {
-                    if (snapshot.connectionState == ConnectionState.waiting) {
-                      return Container();
-                    }
-                    return snapshot.data as Widget;
-                  });
-            },
-          ),
-        ),
+          home: HomeScreen()
+,        ),
       ),
     );
   }

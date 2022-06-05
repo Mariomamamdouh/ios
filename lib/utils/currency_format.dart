@@ -28,7 +28,6 @@ stringToCurrency(double idr, context) {
   thousandSeparator = currencySetting.formatCurrency.image ?? ".";
   decimalSeparator = currencySetting.formatCurrency.title ?? ",";
 
-  currencyPos = currencySetting.currency.position!;
 
   if (thousandSeparator == '.' && decimalSeparator == '.') {
     decimalSeparator = ',';

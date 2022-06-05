@@ -120,7 +120,9 @@ class HomeProvider with ChangeNotifier {
               categories: null,
               id: null,
               titleCategories:
-                  AppLocalizations.of(context)!.translate('view_more')));
+               "view more "
+          )
+          );
           /*End*/
 
           /*Add Data Flash Sales Home*/
@@ -233,7 +235,6 @@ class HomeProvider with ChangeNotifier {
             }
           }
           /*End*/
-
           print("Completed");
           loading = false;
           notifyListeners();

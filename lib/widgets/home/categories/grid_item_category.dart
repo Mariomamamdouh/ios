@@ -117,10 +117,8 @@ class GridItemCategory extends StatelessWidget {
                                         style: TextStyle(color: Colors.black),
                                         children: <TextSpan>[
                                           TextSpan(
-                                              text: stringToCurrency(
-                                                  double.parse(
-                                                      product!.productRegPrice),
-                                                  context),
+                                              text:
+                                                      product!.productRegPrice.toString(),
                                               style: TextStyle(
                                                   decoration:
                                                   TextDecoration.lineThrough,
@@ -138,10 +136,8 @@ class GridItemCategory extends StatelessWidget {
                                   style: TextStyle(color: Colors.black),
                                   children: <TextSpan>[
                                     TextSpan(
-                                        text: stringToCurrency(
-                                            double.parse(
-                                                product!.productPrice),
-                                            context),
+                                        text:
+                                                product!.productPrice.toString(),
                                         style: TextStyle(
                                             fontWeight: FontWeight.w600,
                                             fontSize: responsiveFont(11),
@@ -166,8 +162,9 @@ class GridItemCategory extends StatelessWidget {
                                             .first ==
                                             product!.variationPrices!
                                                 .last
-                                            ? '${stringToCurrency(product!.variationPrices!.first!, context)}'
-                                            : '${stringToCurrency(product!.variationPrices!.first!, context)} - ${stringToCurrency(product!.variationPrices!.last!, context)}',
+                                            ? '${product!.variationPrices!.first!.toString()}'
+                                            : '${product!.variationPrices!.first!.toString()} - '
+                                            '${product!.variationPrices!.last!}',
                                         style: TextStyle(
                                             fontWeight: FontWeight.w600,
                                             fontSize:
